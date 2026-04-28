@@ -217,6 +217,111 @@
             transform: translateY(-2px);
         }
 
+        .faq {
+            padding: 40px 20px 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .faq-title {
+            font-family: 'Sora', sans-serif;
+            font-weight: 700;
+            text-align: center;
+            font-size: clamp(1.4rem, 2.4vw, 2rem);
+            line-height: 1.3;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .faq-title span {
+            font-weight: 800;
+            color: #E31E3A;
+        }
+
+        .faq-divider {
+            width: 70px;
+            height: 3px;
+            background: #E31E3A;
+            border-radius: 2px;
+            margin-bottom: 48px;
+        }
+
+        .faq-list {
+            width: 100%;
+            max-width: 880px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: 48px;
+        }
+
+        .faq-item {
+            background: rgba(20, 20, 20, 0.65);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            overflow: hidden;
+            transition: border-color 0.2s ease;
+        }
+
+        .faq-item[open] {
+            border-color: rgba(227, 30, 58, 0.55);
+        }
+
+        .faq-item summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 20px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            color: #ffffff;
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-item summary::after {
+            content: "+";
+            flex-shrink: 0;
+            width: 32px;
+            height: 32px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(227, 30, 58, 0.15);
+            color: #E31E3A;
+            border-radius: 8px;
+            font-size: 1.4rem;
+            font-weight: 700;
+            line-height: 1;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        .faq-item[open] summary::after {
+            content: "\00D7";
+            background: #E31E3A;
+            color: #ffffff;
+            font-size: 1.6rem;
+        }
+
+        .faq-item .faq-answer {
+            padding: 0 24px 22px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 0.95rem;
+            line-height: 1.65;
+            color: #c8c8c8;
+        }
+
         @media (max-width: 900px) {
             .benefits-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -256,6 +361,20 @@
             .cta-button {
                 padding: 16px 36px;
                 font-size: 1rem;
+            }
+
+            .faq {
+                padding: 30px 14px 80px;
+            }
+
+            .faq-item summary {
+                padding: 18px 18px;
+                font-size: 0.95rem;
+            }
+
+            .faq-item .faq-answer {
+                padding: 0 18px 18px;
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -328,6 +447,52 @@
         </div>
 
         <a href="#agendamento" class="cta-button">Garantir Minha Vaga</a>
+    </section>
+
+    <section class="faq">
+        <h2 class="faq-title">
+            Perguntas <span>Frequentes</span>
+        </h2>
+        <div class="faq-divider"></div>
+
+        <div class="faq-list">
+            <details class="faq-item" open>
+                <summary>Quanto tempo dura o diagnóstico?</summary>
+                <div class="faq-answer">
+                    O diagnóstico tem uma duração aproximada de 30 minutos, tempo suficiente para analisarmos os pontos críticos do seu negócio com profundidade.
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary>Quem realiza o diagnóstico?</summary>
+                <div class="faq-answer">
+                    A call é feita 100% online pela plataforma segura do ZOOM. Caso a consultoria de diagnóstico não te agrade ou não seja o que você esperava, você pode sair a qualquer momento sem ressentimentos.
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary>Como devo me preparar para o diagnóstico?</summary>
+                <div class="faq-answer">
+                    Para aproveitar ao máximo o diagnóstico, recomendamos que você traga as principais dificuldades que enfrenta em seu negócio. Assim, podemos focar nas áreas que mais precisam de atenção.
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary>Posso convidar alguém para participar do diagnóstico comigo?</summary>
+                <div class="faq-answer">
+                    Sim, você pode convidar seu sócio ou qualquer pessoa de confiança para participar do diagnóstico com você. Juntos, podemos discutir as melhores estratégias para o seu negócio.
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary>O diagnóstico é personalizado para o meu negócio?</summary>
+                <div class="faq-answer">
+                    Com certeza! Realizamos uma análise detalhada, focada em identificar os gaps específicos do seu negócio, ajudando você a enxergar com clareza as áreas que precisam de melhorias para acelerar seus resultados.
+                </div>
+            </details>
+        </div>
+
+        <a href="#agendamento" class="cta-button">Quero meu diagnóstico</a>
     </section>
 
     <footer class="footer">
