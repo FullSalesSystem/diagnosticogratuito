@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnóstico Gratuito | Full Sales</title>
+    <link rel="icon" type="image/png" href="ÍCONE---Full-Sales.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        html, body {
+            min-height: 100vh;
+            color: #ffffff;
+            background-color: #0a0a0a;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            background-image: url('background%20fss.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+
+        .topbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 24px;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .topbar img {
+            height: 42px;
+            width: auto;
+            display: block;
+        }
+
+        .overlay {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 120px 20px 60px;
+        }
+
+        h1 {
+            font-family: 'Sora', sans-serif;
+            font-weight: 700;
+            text-align: center;
+            font-size: clamp(1.4rem, 2.6vw, 2.4rem);
+            line-height: 1.3;
+            max-width: 1000px;
+            margin-bottom: 20px;
+        }
+
+        h1 span {
+            font-weight: 800;
+            color: #E31E3A;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: clamp(0.85rem, 1.05vw, 0.95rem);
+            font-weight: 400;
+            line-height: 1.6;
+            color: #b8b8b8;
+            max-width: 800px;
+            margin-bottom: 40px;
+        }
+
+        .calendar-container {
+            width: 100%;
+            max-width: 900px;
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .calendar-container iframe {
+            width: 100%;
+            min-height: 720px;
+            border: none;
+            display: block;
+        }
+
+        .footer {
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 28px 24px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+
+        .footer img {
+            height: 28px;
+            width: auto;
+            margin-bottom: 12px;
+            opacity: 0.9;
+        }
+
+        .footer p {
+            margin: 0;
+        }
+
+        .benefits {
+            padding: 80px 20px 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .benefits-title {
+            font-family: 'Sora', sans-serif;
+            font-weight: 700;
+            text-align: center;
+            font-size: clamp(1rem, 1.7vw, 1.5rem);
+            line-height: 1.3;
+            max-width: 1000px;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .benefits-title span {
+            font-weight: 800;
+            color: #E31E3A;
+        }
+
+        .benefits-divider {
+            width: 70px;
+            height: 3px;
+            background: #E31E3A;
+            border-radius: 2px;
+            margin-bottom: 56px;
+        }
+
+        .benefits-grid {
+            width: 100%;
+            max-width: 1180px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 56px;
+        }
+
+        .benefit-card {
+            background: rgba(20, 20, 20, 0.65);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 14px;
+            padding: 32px 28px;
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+        }
+
+        .benefit-card img {
+            width: 64px;
+            height: 64px;
+            object-fit: contain;
+            display: block;
+            margin-bottom: 22px;
+        }
+
+        .benefit-card h3 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: #E31E3A;
+            margin-bottom: 14px;
+        }
+
+        .benefit-card p {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #d0d0d0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #E31E3A;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 1.05rem;
+            padding: 18px 48px;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: background 0.2s ease, transform 0.2s ease;
+            box-shadow: 0 10px 30px rgba(227, 30, 58, 0.35);
+        }
+
+        .cta-button:hover {
+            background: #c4172f;
+            transform: translateY(-2px);
+        }
+
+        .faq {
+            padding: 40px 20px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .faq-title {
+            font-family: 'Sora', sans-serif;
+            font-weight: 700;
+            text-align: center;
+            font-size: clamp(1.4rem, 2.4vw, 2rem);
+            line-height: 1.3;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .faq-title span {
+            font-weight: 800;
+            color: #E31E3A;
+        }
+
+        .faq-divider {
+            width: 70px;
+            height: 3px;
+            background: #E31E3A;
+            border-radius: 2px;
+            margin-bottom: 48px;
+        }
+
+        .faq-list {
+            width: 100%;
+            max-width: 880px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .faq-item {
+            background: rgba(20, 20, 20, 0.65);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            overflow: hidden;
+            transition: border-color 0.2s ease;
+        }
+
+        .faq-item[open] {
+            border-color: rgba(227, 30, 58, 0.55);
+        }
+
+        .faq-item summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 20px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            color: #ffffff;
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-item summary::after {
+            content: "+";
+            flex-shrink: 0;
+            width: 32px;
+            height: 32px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(227, 30, 58, 0.15);
+            color: #E31E3A;
+            border-radius: 8px;
+            font-size: 1.4rem;
+            font-weight: 700;
+            line-height: 1;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        .faq-item[open] summary::after {
+            content: "\00D7";
+            background: #E31E3A;
+            color: #ffffff;
+            font-size: 1.6rem;
+        }
+
+        .faq-item .faq-answer {
+            padding: 0 24px 22px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 0.95rem;
+            line-height: 1.65;
+            color: #c8c8c8;
+        }
+
+        .final-cta {
+            padding: 40px 20px 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .final-cta-title {
+            font-family: 'Sora', sans-serif;
+            font-weight: 700;
+            font-size: clamp(1.6rem, 3vw, 2.6rem);
+            line-height: 1.25;
+            max-width: 900px;
+            margin-bottom: 18px;
+        }
+
+        .final-cta-title span {
+            font-weight: 800;
+            color: #E31E3A;
+        }
+
+        .final-cta-subtitle {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: clamp(0.9rem, 1.1vw, 1rem);
+            line-height: 1.6;
+            color: #c8c8c8;
+            max-width: 700px;
+            margin-bottom: 36px;
+        }
+
+        @media (max-width: 900px) {
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .topbar {
+                padding: 12px 16px;
+            }
+
+            .topbar img {
+                height: 34px;
+            }
+
+            .overlay {
+                padding: 90px 14px 40px;
+            }
+
+            .calendar-container iframe {
+                min-height: 820px;
+            }
+
+            .benefits {
+                padding: 60px 14px 80px;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+
+            .benefit-card {
+                padding: 26px 22px;
+            }
+
+            .cta-button {
+                padding: 16px 36px;
+                font-size: 1rem;
+            }
+
+            .faq {
+                padding: 30px 14px 30px;
+            }
+
+            .faq-item summary {
+                padding: 18px 18px;
+                font-size: 0.95rem;
+            }
+
+            .faq-item .faq-answer {
+                padding: 0 18px 18px;
+                font-size: 0.9rem;
+            }
+
+            .final-cta {
+                padding: 30px 14px 70px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="topbar">
+        <img src="LOGO-(Branco)---Full-Sales.png" alt="Full Sales">
+    </header>
+
+    <div class="overlay" id="agendamento">
+        <h1>
+            Diagnóstico exclusivo para empresários que desejam <span>escalar seus processos comerciais</span>
+        </h1>
+
+        <p class="subtitle">
+            Semanalmente, disponibilizamos alguns horários restritos para realizar consultorias de pré-avaliação focadas para empresários que desejam obter maior resultado das suas operações e times comerciais
+        </p>
+
+        <div class="calendar-container">
+            <iframe
+                src="https://api.leadconnectorhq.com/widget/booking/6cQkBgUm32kbubL9ynaP"
+                scrolling="no"
+                id="6cQkBgUm32kbubL9ynaP_1777402675418">
+            </iframe>
+        </div>
+    </div>
+
+    <section class="benefits">
+        <h2 class="benefits-title">
+            O que você vai obter de um <span>Diagnóstico de Implementação Comercial?</span>
+        </h2>
+        <div class="benefits-divider"></div>
+
+        <div class="benefits-grid">
+            <article class="benefit-card">
+                <img src="estrutura%20comercial.webp" alt="Estrutura Comercial">
+                <h3>Estrutura Comercial</h3>
+                <p>Como estruturar um processo com SDRs, Closers, Social Sellers e Customer Success para gerar mais ROI e LTV para sua esteira</p>
+            </article>
+
+            <article class="benefit-card">
+                <img src="dimensionamento.webp" alt="Dimensionamento">
+                <h3>Dimensionamento</h3>
+                <p>Dimensionamento correto para recrutar profissionais da área comercial</p>
+            </article>
+
+            <article class="benefit-card">
+                <img src="gestao%20e%20processos.webp" alt="Gestão e Processos">
+                <h3>Gestão e Processos</h3>
+                <p>Quais são os indicadores que necessitam ser observados para garantir a alta performance da sua operação</p>
+            </article>
+
+            <article class="benefit-card">
+                <img src="maximizacao%20de%20receita.webp" alt="Maximização de Receita">
+                <h3>Maximização de Receita</h3>
+                <p>Como utilizar comercial em 5 áreas de forma específica para criar uma alavanca de receita com menor dependência de tráfego possível</p>
+            </article>
+
+            <article class="benefit-card">
+                <img src="estrutura%20comercial.webp" alt="Recrutamento Comercial">
+                <h3>Recrutamento Comercial</h3>
+                <p>Como fazer um processo seletivo comercial e como remunerar para não perder sua equipe comercial do dia para noite ou não acomodar low performers</p>
+            </article>
+
+            <article class="benefit-card">
+                <img src="automacao.webp" alt="Automações">
+                <h3>Automações</h3>
+                <p>Quais CRMs e automações geram até x4 mais produtividade para seu time performar melhor em cada oportunidade</p>
+            </article>
+        </div>
+
+        <a href="#agendamento" class="cta-button">Quero meu diagnóstico</a>
+    </section>
+
+    <section class="faq">
+        <h2 class="faq-title">
+            Perguntas <span>Frequentes</span>
+        </h2>
+        <div class="faq-divider"></div>
+
+        <div class="faq-list">
+            <details class="faq-item" open>
+                <summary>Quanto tempo dura o diagnóstico?</summary>
+                <div class="faq-answer">
+                    O diagnóstico tem uma duração aproximada de 30 minutos, tempo suficiente para analisarmos os pontos críticos do seu negócio com profundidade.
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary>Quem realiza o diagnóstico?</summary>
+                <div class="faq-answer">
+                    A call é feita 100% online pela plataforma segura do ZOOM. Caso a consultoria de diagnóstico não te agrade ou não seja o que você esperava, você pode sair a qualquer momento sem ressentimentos.
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary>Como devo me preparar para o diagnóstico?</summary>
+                <div class="faq-answer">
+                    Para aproveitar ao máximo o diagnóstico, recomendamos que você traga as principais dificuldades que enfrenta em seu negócio. Assim, podemos focar nas áreas que mais precisam de atenção.
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary>Posso convidar alguém para participar do diagnóstico comigo?</summary>
+                <div class="faq-answer">
+                    Sim, você pode convidar seu sócio ou qualquer pessoa de confiança para participar do diagnóstico com você. Juntos, podemos discutir as melhores estratégias para o seu negócio.
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary>O diagnóstico é personalizado para o meu negócio?</summary>
+                <div class="faq-answer">
+                    Com certeza! Realizamos uma análise detalhada, focada em identificar os gaps específicos do seu negócio, ajudando você a enxergar com clareza as áreas que precisam de melhorias para acelerar seus resultados.
+                </div>
+            </details>
+        </div>
+    </section>
+
+    <section class="final-cta">
+        <h2 class="final-cta-title">
+            Pronto para transformar sua <span>operação comercial?</span>
+        </h2>
+        <p class="final-cta-subtitle">
+            Aperte no botão abaixo para garantir sua vaga agora mesmo:
+        </p>
+        <a href="#agendamento" class="cta-button">Quero meu diagnóstico</a>
+    </section>
+
+    <footer class="footer">
+        <img src="LOGO-(Branco)---Full-Sales.png" alt="Full Sales">
+        <p>&copy; 2026 Full Sales. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
+</body>
+</html>
