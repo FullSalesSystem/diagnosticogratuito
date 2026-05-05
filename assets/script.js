@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded",function(){var t=document.querySelectorAll(".faq-item");t.forEach(function(e){e.addEventListener("toggle",function(){e.open&&t.forEach(function(o){o!==e&&(o.open=!1)})})})});
